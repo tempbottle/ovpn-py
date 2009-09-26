@@ -1,0 +1,45 @@
+OpenVPN embedded Python plugin.
+
+This plugin implements V1 OpenVPN plugin interface,
+thus in other words getting many info from OpenVPN
+and returning only TRUE/FALSE values.
+
+It is loaded as other plugins. Plugin parameters are:
+1. module name which will be imported the same way as
+if it was "import ..." from Python. Mandatory.
+2. Path which will be appended to Python "sys.path"
+and where also module noted in 1-st parameter will
+be searched for. Not mandatory.
+
+Module.
+Module should contain anything, but at least two
+callback functions must be declared:
+1. plugin_up() which is called on initialization of
+plugin.
+2. plugin_down() which is called on OpenVPN shutdown.
+
+Next callback which are not mandatory:
+route_up()
+ipchange()
+tls_verify()
+auth_user_pass_verify()
+client_connect()
+client_disconnect()
+learn_address()
+tls_final()
+enable_pf()
+
+During initialization of plugin those not mandatory
+callback is searched for presence and if are callable.
+If so, OpenVPN type mask is set for particular call-
+backs, so only those, which are declared plugin
+are advertised to OpenVPN.
+Every callback has at least one parameter, environment
+which is Python dictionary. It is not system env., but
+OpenVPN environment. Callbacks are expected to return
+only True/False values. Look at sample module in sources.
+
+Import and use what you wish, but threading is not
+anyhow handled. In fact may be it is not a problem
+for this plugin cause of its behavior, but keep it
+on mind.

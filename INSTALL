@@ -1,0 +1,4 @@
+Build it, copy somewhere and load to OpenVPN.
+Developed on Python2.5.
+Header openvpn-plugin.h from 2.1_r19 is
+included.
