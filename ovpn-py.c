@@ -115,7 +115,7 @@ openvpn_plugin_func_v1 (openvpn_plugin_handle_t handle, const int type, const ch
     env = PyDict_New();
     for(cnt = 0; envp[cnt] != NULL; ++cnt) {
     	int esz = strlen(envp[cnt]);
-    	tmpstr = calloc(1, esz);
+    	tmpstr = calloc(1, (esz+2));
     	strncpy(tmpstr, envp[cnt], esz);
     	char *spos = strchr(tmpstr, '=');
     	*spos = 0;
