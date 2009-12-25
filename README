@@ -9,7 +9,7 @@ It is loaded as other plugins. Plugin parameters are:
 if it was "import ..." from Python. Mandatory.
 2. Path which will be appended to Python "sys.path"
 and where also module noted in 1-st parameter will
-be searched for. Not mandatory.
+be searched for. Optional.
 
 Module.
 Module should contain anything, but at least two
@@ -18,7 +18,7 @@ callback functions must be declared:
 plugin.
 2. plugin_down() which is called on OpenVPN shutdown.
 
-Next callback which are not mandatory:
+Next callbacks which are optional:
 route_up()
 ipchange()
 tls_verify()
@@ -29,11 +29,11 @@ learn_address()
 tls_final()
 enable_pf()
 
-During initialization of plugin those not mandatory
-callback is searched for presence and if are callable.
-If so, OpenVPN type mask is set for particular call-
-backs, so only those, which are declared plugin
-are advertised to OpenVPN.
+During initialization of plugin those optional callbacks
+are searched for presence and if they are Python callable.
+If so, OpenVPN type mask is set for particular callbacks,
+so only those, which are declared, are advertised to
+OpenVPN.
 Every callback has at least one parameter, environment
 which is Python dictionary. It is not system env., but
 OpenVPN environment. Callbacks are expected to return

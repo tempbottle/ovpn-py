@@ -1,4 +1,5 @@
 Build it, copy somewhere and load to OpenVPN.
+That's easy. It has Eclipse project build targets
+included in distribution.
 Developed on Python2.5.
-Header openvpn-plugin.h from 2.1_r19 is
-included.
+Header openvpn-plugin.h from 2.1.1 is included.
