@@ -34,6 +34,9 @@
 <option defaultValue="gnu.c.optimization.level.none" id="gnu.c.compiler.so.debug.option.optimization.level.1857785381" name="Optimization Level" superClass="gnu.c.compiler.so.debug.option.optimization.level" value="gnu.c.optimization.level.optimize" valueType="enumerated"/>
 <option id="gnu.c.compiler.so.debug.option.debugging.level.837695361" name="Debug Level" superClass="gnu.c.compiler.so.debug.option.debugging.level" value="gnu.c.debugging.level.max" valueType="enumerated"/>
 <option id="gnu.c.compiler.option.misc.other.868563144" name="Other flags" superClass="gnu.c.compiler.option.misc.other" value="-c -fmessage-length=0 -fpic" valueType="string"/>
+<option id="gnu.c.compiler.option.include.paths.377739018" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
+<listOptionValue builtIn="false" value="/usr/include/python2.5"/>
+</option>
 <inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.698201643" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 </tool>
 <tool id="cdt.managedbuild.tool.gnu.c.linker.so.debug.1393319456" name="GCC C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.so.debug">
@@ -320,6 +323,7 @@
 </buildTargets>
 </storageModule>
 <storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
+<storageModule moduleId="org.eclipse.cdt.core.language.mapping"/>
 </cconfiguration>
 <cconfiguration id="cdt.managedbuild.config.gnu.so.release.269508532">
 <storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="cdt.managedbuild.config.gnu.so.release.269508532" moduleId="org.eclipse.cdt.core.settings" name="Release">
@@ -351,17 +355,20 @@
 <tool id="cdt.managedbuild.tool.gnu.c.compiler.so.release.862098952" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.so.release">
 <option defaultValue="gnu.c.optimization.level.most" id="gnu.c.compiler.so.release.option.optimization.level.69736693" name="Optimization Level" superClass="gnu.c.compiler.so.release.option.optimization.level" valueType="enumerated"/>
 <option id="gnu.c.compiler.so.release.option.debugging.level.1962129856" name="Debug Level" superClass="gnu.c.compiler.so.release.option.debugging.level" value="gnu.c.debugging.level.none" valueType="enumerated"/>
-<option id="gnu.c.compiler.option.misc.other.787322969" superClass="gnu.c.compiler.option.misc.other" value="-c -fmessage-length=0 -fpic" valueType="string"/>
-<option id="gnu.c.compiler.option.warnings.allwarn.1648582839" superClass="gnu.c.compiler.option.warnings.allwarn" value="false" valueType="boolean"/>
-<option id="gnu.c.compiler.option.optimization.flags.1897131023" superClass="gnu.c.compiler.option.optimization.flags" value="-fomit-frame-pointer" valueType="string"/>
+<option id="gnu.c.compiler.option.misc.other.787322969" name="Other flags" superClass="gnu.c.compiler.option.misc.other" value="-c -fmessage-length=0 -fpic" valueType="string"/>
+<option id="gnu.c.compiler.option.warnings.allwarn.1648582839" name="All warnings (-Wall)" superClass="gnu.c.compiler.option.warnings.allwarn" value="false" valueType="boolean"/>
+<option id="gnu.c.compiler.option.optimization.flags.1897131023" name="Other optimization flags" superClass="gnu.c.compiler.option.optimization.flags" value="-fomit-frame-pointer" valueType="string"/>
+<option id="gnu.c.compiler.option.include.paths.555627874" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
+<listOptionValue builtIn="false" value="/usr/include/python2.5"/>
+</option>
 <inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1520888378" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 </tool>
 <tool id="cdt.managedbuild.tool.gnu.c.linker.so.release.1697219529" name="GCC C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.so.release">
 <option defaultValue="true" id="gnu.c.link.so.release.option.shared.600684459" name="Shared (-shared)" superClass="gnu.c.link.so.release.option.shared" valueType="boolean"/>
-<option id="gnu.c.link.option.libs.95227425" superClass="gnu.c.link.option.libs" valueType="libs">
+<option id="gnu.c.link.option.libs.95227425" name="Libraries (-l)" superClass="gnu.c.link.option.libs" valueType="libs">
 <listOptionValue builtIn="false" value="python2.5"/>
 </option>
-<option id="gnu.c.link.option.soname.438638002" superClass="gnu.c.link.option.soname" value="libovpn-py.so" valueType="string"/>
+<option id="gnu.c.link.option.soname.438638002" name="Shared object name (-Wl,-soname=)" superClass="gnu.c.link.option.soname" value="libovpn-py.so" valueType="string"/>
 <inputType id="cdt.managedbuild.tool.gnu.c.linker.input.186033075" superClass="cdt.managedbuild.tool.gnu.c.linker.input">
 <additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 <additionalInput kind="additionalinput" paths="$(LIBS)"/>
@@ -640,6 +647,7 @@
 </buildTargets>
 </storageModule>
 <storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
+<storageModule moduleId="org.eclipse.cdt.core.language.mapping"/>
 </cconfiguration>
 </storageModule>
 <storageModule moduleId="cdtBuildSystem" version="4.0.0">

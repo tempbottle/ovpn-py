@@ -8,7 +8,7 @@
 */
 
 #include <stdio.h>
-#include <python/Python.h>
+#include <Python.h>
 #include "openvpn-plugin.h"
 
 struct plugin_context {
