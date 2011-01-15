@@ -6,10 +6,12 @@ and returning only TRUE/FALSE values.
 
 It is loaded as other plugins. Plugin parameters are:
 1. module name which will be imported the same way as
-if it was "import ..." from Python. Mandatory.
-2. Path which will be appended to Python "sys.path"
+if it was "import ..." from Python. Mandatory. By
+default it prepends plugin (.so) path to sys.path.
+2. Path which will be prepended to Python "sys.path"
 and where also module noted in 1-st parameter will
-be searched for. Optional.
+be searched for. Optional. In this case plugin (.so)
+path is not in sys.path, but this parameter path.
 
 Module.
 Module should contain anything, but at least two

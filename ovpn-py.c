@@ -33,6 +33,7 @@ OPENVPN_EXPORT openvpn_plugin_handle_t openvpn_plugin_open_v1(
 	PyObject *tmp;
 	int asz;
 	struct plugin_context *context;
+	char *syspath, *bpath;
 
 	*type_mask = OPENVPN_PLUGIN_MASK(OPENVPN_PLUGIN_UP)
 			| OPENVPN_PLUGIN_MASK(OPENVPN_PLUGIN_DOWN);
@@ -47,11 +48,25 @@ OPENVPN_EXPORT openvpn_plugin_handle_t openvpn_plugin_open_v1(
 
 	Py_Initialize();
 	for (asz = 0; argv[asz] != NULL; ++asz);
-	if (asz < 2)
+	switch (asz) {
+	case 1:
 		return NULL;
-	PySys_SetArgv(asz, argv);
-	if (asz > 2)
-		PySys_SetPath(argv[2]);
+	case 2:
+		PySys_SetArgv(asz, argv);
+		break;
+	case 3: {
+		syspath = (char *) calloc(1, 2048);
+		snprintf(syspath, 2048, "%s/%s.py", argv[2], argv[1]);
+		bpath = argv[0];
+		argv[0] = syspath;
+		PySys_SetArgv(asz, argv);
+		free(syspath);
+		argv[0] = bpath;
+		break;
+	}
+	default:
+		return NULL;
+	}
 	tmp = PyString_FromString(argv[1]);
 	context->module = PyImport_Import(tmp);
 	if (context->module == NULL) {
@@ -127,7 +142,8 @@ OPENVPN_EXPORT int openvpn_plugin_func_v1(openvpn_plugin_handle_t handle,
 	struct plugin_context *context = (struct plugin_context *) handle;
 	char *tmpstr;
 
-	for (size = 0; argv[size] != NULL; ++size);
+	for (size = 0; argv[size] != NULL; ++size)
+		;
 	vals = PyTuple_New(size);
 	env = PyDict_New();
 	for (cnt = 0; envp[cnt] != NULL; ++cnt) {
